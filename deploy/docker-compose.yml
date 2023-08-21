@@ -1,0 +1,25 @@
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    ports:
+      - "27017:27017"
+    
+  acquiring-bank-simulator:
+    image: registry.gitlab.com/icaro.py/acquiringbank
+    container_name: acquiringbank-simulator-api
+    environment:
+      - Storage:MongoDb:Host=mongodb
+      - Storage:MongoDb:Port=27017
+      - Storage:MongoDb:UserName=admin
+      - Storage:MongoDb:Password=admin
+      - Storage:MongoDb:Database=Checkout_AcquiringBank
+    ports:
+      - "5000:80"
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
