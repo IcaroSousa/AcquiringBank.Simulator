@@ -1,0 +1,18 @@
+services:
+  devenv:
+    image: mcr.microsoft.com/devcontainers/dotnet:9.0
+    volumes:
+      - ../..:/workspaces:cached
+    network_mode: service:mongodb
+    command: sleep infinity
+    # ports:
+    #   - "5000:5000"
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    ports:
+      - "27017:27017"

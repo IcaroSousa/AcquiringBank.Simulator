@@ -1,0 +1,23 @@
+<Project>
+	
+    <PropertyGroup>
+		<TargetFrameworkVersion>net9.0</TargetFrameworkVersion>
+
+		<MicrosoftAspNetCoreOpenApiVersion>9.0.6</MicrosoftAspNetCoreOpenApiVersion>
+		<SwashbuckleAspNetCoreVersion>6.5.0</SwashbuckleAspNetCoreVersion>
+		<BogusVersion>35.6.3</BogusVersion>
+		<MicrosoftExtensionsConfigurationAbstractionsVersion>9.0.6</MicrosoftExtensionsConfigurationAbstractionsVersion>
+		<MicrosoftExtensionsConfigurationBinderVersion>9.0.6</MicrosoftExtensionsConfigurationBinderVersion>
+		<MicrosoftExtensionsDependencyInjectionAbstractionsVersion>9.0.6</MicrosoftExtensionsDependencyInjectionAbstractionsVersion>
+		<MicrosoftExtensionsOptionsConfigurationExtensionsVersion>9.0.6</MicrosoftExtensionsOptionsConfigurationExtensionsVersion>
+		<MongoDBDriverVersion>3.4.0</MongoDBDriverVersion>
+
+		<FluentAssertionsVersion>7.2.0</FluentAssertionsVersion>
+		<MicrosoftNETTestSdkVersion>17.14.1</MicrosoftNETTestSdkVersion>
+		<TestcontainersVersion>4.6.0</TestcontainersVersion>
+		<xunitVersion>2.9.3</xunitVersion>
+		<xunitrunnervisualstudioVersion>3.1.1</xunitrunnervisualstudioVersion>
+		<coverletcollectorVersion>6.0.4</coverletcollectorVersion>
+
+	</PropertyGroup>
+</Project>
