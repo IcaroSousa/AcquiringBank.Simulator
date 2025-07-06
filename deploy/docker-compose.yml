@@ -16,7 +16,7 @@ services:
       - Storage:MongoDb:Port=27017
       - Storage:MongoDb:UserName=admin
       - Storage:MongoDb:Password=admin
-      - Storage:MongoDb:Database=Checkout_AcquiringBank
+      - Storage:MongoDb:Database=AcquiringBank
     ports:
       - "5000:80"
     depends_on:
