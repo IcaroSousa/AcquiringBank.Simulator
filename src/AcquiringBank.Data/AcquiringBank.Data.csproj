@@ -1,14 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>$(TargetFrameworkVersion)</TargetFramework>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
-
-
+    
     <ItemGroup>
-      <PackageReference Include="MongoDB.Driver" Version="2.21.0" />
+      <PackageReference Include="MongoDB.Driver" Version="$(MongoDBDriverVersion)" />
     </ItemGroup>
 
 
