@@ -2,6 +2,9 @@ using System;
 using System.Threading.Tasks;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Containers;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using Xunit;
 
@@ -34,6 +37,9 @@ public class MongoDbFixture : IAsyncLifetime
             .Build();
 
         await _mongodbContainer.StartAsync();
+        
+        BsonSerializer.TryRegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
+        
         _mongoClient = new MongoClient($"mongodb://{MongoDbRootUserName}:{MongoDbRootPassword}@{_mongodbContainer.Hostname}:{_mongodbContainer.GetMappedPublicPort(MongoDbPublicPort)}");
         MongoDatabase = _mongoClient.GetDatabase(Guid.NewGuid().ToString("D"));
     }

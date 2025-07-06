@@ -1,6 +1,9 @@
 using AcquiringBank.Infrastructure.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 
 namespace AcquiringBank.Infrastructure.Extensions;
@@ -15,7 +18,9 @@ public static class MongoDbExtensions
 
         serviceCollection.AddSingleton<IMongoClient>(_ => mongoClient);
         serviceCollection.AddSingleton<IMongoDatabase>(_ => mongoClient.GetDatabase(settings.Database));
-
+        
+        BsonSerializer.TryRegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
+        
         return serviceCollection;
     }
 }
